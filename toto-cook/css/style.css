@@ -1,2 +1,128 @@
 @charset "utf-8";
 /* CSS Document */
+
+/* ########### BALISES NATIVES */
+
+body {
+  font-family: sans-serif;
+  background-image: url("../images/nappe.jpg");
+}
+
+/* ########### STRUCTURE */
+
+main {
+  width: 1000px;
+  min-height: 600px;
+  margin: 0 auto;
+  padding: 10px;
+  background-image: url("../images/fond.jpg");
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.5);
+}
+
+/* ######### HEADER */
+
+main > header {
+  position: relative;
+  height: 250px;
+  background-image: url("../images/logo_toto.png");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: auto 240px;
+}
+
+main > header div#ident {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: right;
+}
+
+main > header h1 {
+  margin: 0;
+  padding-top: 50px;
+  font-size: 4rem;
+  text-align: center;
+}
+
+main > header h4 {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+main > header nav {
+  bottom: 0;
+  right: 0;
+  position: absolute;
+}
+
+main > header nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+main > header nav ul li {
+  margin: 3px;
+  padding: 10px;
+  display: inline-block;
+  width: 105px;
+  height: 35px;
+  background-color: #d6ae87;
+  line-height: 35px;
+  text-align: center;
+  overflow: hidden;
+  cursor: pointer;
+  color: whitesmoke;
+  box-shadow: 2px 2px 10px rgba(0,0,0,.4);
+  transition: all .15s linear;
+}
+
+main > header nav ul li:hover {
+  transform: translateY(-3px);
+  box-shadow: 2px 2px 10px rgba(0,0,0,.25);
+}
+
+/* ######### SECTION */
+
+main > section {
+  background-color: #d6ae87;
+  height: 250px;
+  border: 1px solid grey;
+}
+
+/* ######### FOOTER */
+
+main > footer {
+  margin: 50px 0;
+  border: 1px solid grey;
+  text-align: center;
+}
+
+/* ######## FORMULAIRES */
+form input[type=text], form input[type=password] {
+  border: 1px solid rgb(240, 240, 240);
+  width: 275px;
+  height: 25px;
+  padding: 4px;
+  color: rgb(62, 62, 62);
+}
+
+form input[type=password] {
+  width: 200px;
+}
+
+form input[type=submit] {
+  border: 0;
+  width: 100px;
+  height: 32px;
+  text-align: center;
+  background-color: #69c369;
+  color: whitesmoke;
+  box-shadow: 2px 2px 10px rgba(0,0,0,.5);
+  cursor: pointer;
+  transition: box-shadow .15s linear;
+}
+form input[type=submit]:hover {
+  box-shadow: 2px 2px 10px rgba(0,0,0,.25);
+}
