@@ -1,3 +1,7 @@
+<?php
+  include_once("inc_config.php");
+  include_once("inc_session.php");
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
