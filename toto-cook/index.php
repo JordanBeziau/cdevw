@@ -1,3 +1,7 @@
+<?php 
+	# Page identification
+	$page_id = 0;
+?>
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
