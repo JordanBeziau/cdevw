@@ -29,7 +29,7 @@ main {
 
 main > header {
   position: relative;
-  height: 250px;
+  min-height: 250px;
   background-image: url("../images/logo_toto.png");
   background-repeat: no-repeat;
   background-position: left center;
@@ -62,7 +62,14 @@ main > header nav {
   right: 0;
   position: absolute;
 }
-
+main > header nav div#burger {
+  display: none;
+  width: 50px;
+  height: 50px;
+  background-image: url('../images/ico_menu.png');
+  background-position: left center;
+  cursor: pointer;
+}
 main > header nav ul {
   margin: 0;
   padding: 0;
@@ -151,5 +158,55 @@ form input[type=submit]:hover {
   main > header h1, main > header h4 {
     text-align: left;
     padding-left: 90px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  main > header div#ident {
+    width: 100%;
+    max-width:  100%;
+  }
+  main > header div#ident form {
+    display: flex;
+    padding: 0 10px;
+  }
+  main > header div#ident form > input:not(:last-of-type) {
+    margin-right: 5px;
+    flex-grow: 1;
+    width: initial;
+  }
+  main > header div#ident form > input:first-of-type {
+    flex-grow: 2;
+  }
+  main > header nav div#burger {
+    display: block;
+    float: right;
+  }
+  main > header nav div#burger.active_menu {
+    background-position: right center;
+  }
+  main > header nav {
+    position: relative;
+    width: 100%;
+    margin-top: 25px;
+    overflow: auto;
+  }
+  main > header ul {
+    display: none;
+  }
+  main > header ul.active_menu {
+    display:block;
+    margin-bottom: 25px;
+  }
+  main > header nav ul li {
+    display: block;
+    width: 100%;
+    margin: 0;
+    box-shadow: initial;
+  }
+  .actif {
+    transform: initial;
+    box-shadow: initial;
+    background-color: hsla(30, 40%, 62%, 1);
   }
 }
