@@ -38,7 +38,7 @@
 
         document.querySelector("#inscription_form").addEventListener("submit", event => {
           event.preventDefault();
-          handleForm.check();
+          handleForm.check(event);
         })
 
       });

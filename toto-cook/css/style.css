@@ -14,6 +14,7 @@ a {
   text-decoration: none;
 }
 
+
 /* ########### STRUCTURE */
 
 main {
@@ -104,6 +105,24 @@ main > header nav ul li a {
 
 main > section {
   background-color: transparent;
+}
+
+/* ######## Liste des plats */
+main > section.liste-des-plats {
+  padding: 40px 0;
+}
+main > section.liste-des-plats > div {
+  display: flex;
+  margin-bottom: 20px;
+}
+main > section.liste-des-plats > div > div:first-of-type {
+  margin-right: 10px;
+}
+main > section.liste-des-plats > div > div:last-of-type {
+  padding: 0 10px
+}
+main > section.liste-des-plats p.prix {
+  text-align: right;
 }
 /* SLIDER */
 main > section .bx-wrapper div.bx-viewport {

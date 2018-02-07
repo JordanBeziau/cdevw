@@ -24,7 +24,7 @@
 					<input type="text" name="last_name" placeholder="Nom">
 					<input type="text" name="first_name" placeholder="Prénom">
 					<input type="email" name="email" placeholder="Email">
-					<input type="text" name="adress" placeholder="Adresse">
+					<input type="text" name="address" placeholder="Adresse">
 					<input type="text" name="post" placeholder="Code postal">
 					<input type="text" name="city" placeholder="Ville">
 					<input type="text" name="phone" placeholder="Téléphone">
