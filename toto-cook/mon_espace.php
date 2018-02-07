@@ -1,10 +1,11 @@
-<?php
+<?php 
+	# Page identification
 	session_start();
-	$page_id = 3;
-	$page_title = "Contact";
+	$page_id = 2;
+	$page_title = "Mon espace";
 ?>
-<?php include_once("includes/inc_head.php"); ?>
-  <body>
+	<?php include_once("includes/inc_head.php"); ?>
+	<body>
 			<main>
 				<?php 
 					include_once("./includes/inc_header.php"); 

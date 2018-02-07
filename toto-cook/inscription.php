@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	$page_id = 2;
 	$page_title = "Inscription";
 ?>

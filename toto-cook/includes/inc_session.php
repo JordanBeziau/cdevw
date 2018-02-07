@@ -1,6 +1,10 @@
 <?php
-  session_start();
   
+  if (isset($_POST["logout"])) {
+    unset($_SESSION["client"]);
+    unset($_SESSION["client_id"]);
+  }
+
   # Handle connexion
   if (!empty($_POST["email"]) && !empty($_POST["password"])) {
     $email = $_POST["email"];

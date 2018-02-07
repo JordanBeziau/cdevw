@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	$page_id = 4;
 	$page_title = "Panier";
 ?>

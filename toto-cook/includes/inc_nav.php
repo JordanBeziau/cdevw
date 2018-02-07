@@ -15,9 +15,13 @@
     <li
       <?php if ($page_id === $index) echo "class='actif'"; ?>
     >
+    <?php if ($page === "Inscription" && isset($_SESSION["client_id"])) : ?>
+      <a href="/mon_espace">Mon espace</a>
+    <?php else : ?>
       <a href="<?= formatPage($page) ?>">
         <?= $page ?>
       </a>
+    <?php endif; ?>
     </li>
   <?php endforeach; ?>
 </ul>

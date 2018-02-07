@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	$page_id = 1;
 	$page_title = "Liste des plats";
 ?>

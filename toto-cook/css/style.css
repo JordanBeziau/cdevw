@@ -50,7 +50,6 @@ main > header h1 {
   text-align: center;
 }
 /* BASELINE */
-
 main > header h4 {
   margin: 0;
   padding: 0;
@@ -104,16 +103,25 @@ main > header nav ul li a {
 /* ######### SECTION */
 
 main > section {
-  background-color: #d6ae87;
-  height: 250px;
-  border: 1px solid grey;
+  background-color: transparent;
+}
+/* SLIDER */
+main > section .bx-wrapper div.bx-viewport {
+  left: 0;
+  border-color: #d6ae87;
+}
+main > section ul.bxslider {
+  padding: 0;
+  margin: 0;
+}
+main > section .bx-wrapper div.bx-caption {
+  bottom: 10px;
 }
 
 /* ######### FOOTER */
 
 main > footer {
   margin: 50px 0;
-  border: 1px solid grey;
   text-align: center;
 }
 
@@ -132,7 +140,6 @@ form input[type=password] {
 
 form input[type=submit] {
   border: 0;
-  width: 100px;
   height: 30px;
   text-align: center;
   background-color: #69c369;
