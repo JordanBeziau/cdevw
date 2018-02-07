@@ -126,21 +126,39 @@ main > footer {
 }
 
 /* ######## FORMULAIRES */
-form input[type=text], form input[type=password] {
+form.main_form {
+  width: 275px;
+  margin: 20px auto;
+}
+form label {
+  width: 49%;
+  display:  inline-block;
+  margin-bottom: 5px;
+  text-align: center;
+}
+form input.error {
+  box-shadow: 0 0 10px #e23131;
+  border: 1px solid #e23131;
+}
+form input[type=text], form input[type=password], form input[type=email] {
   border: 1px solid rgb(240, 240, 240);
   width: 275px;
-  height: 30px;
+  height: 35px;
   padding: 4px;
+  margin: 2px 0;
   color: rgb(62, 62, 62);
 }
 
 form input[type=password] {
   width: 200px;
 }
-
+form input[type=submit].main_form {
+  width: 275px;
+  margin-top: 4px;
+}
 form input[type=submit] {
   border: 0;
-  height: 30px;
+  height: 35px;
   text-align: center;
   background-color: #69c369;
   color: whitesmoke;

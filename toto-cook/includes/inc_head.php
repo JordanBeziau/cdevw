@@ -29,6 +29,20 @@
           })
       })
     </script>
+    <?php elseif ($page_title === "Inscription") : ?>
+    <script src="../scripts/HandleForm.js" defer></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+
+        const handleForm = new HandleForm();
+
+        document.querySelector("#inscription_form").addEventListener("submit", event => {
+          event.preventDefault();
+          handleForm.check();
+        })
+
+      });
+    </script>
   <?php endif; ?>
   <link rel="stylesheet" href="../css/style.css" >
 </head>
