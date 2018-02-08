@@ -18,7 +18,7 @@
     <?php if ($page === "Inscription" && isset($_SESSION["client_id"])) : ?>
       <a href="/mon_espace">Mon espace</a>
     <?php else : ?>
-      <a href="<?= formatPage($page) ?>">
+      <a href="/<?= formatPage($page) ?>">
         <?= $page ?>
       </a>
     <?php endif; ?>

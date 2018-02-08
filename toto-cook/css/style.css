@@ -14,6 +14,9 @@ a {
   text-decoration: none;
 }
 
+figure img {
+  max-width: 100%;
+}
 
 /* ########### STRUCTURE */
 
@@ -121,8 +124,34 @@ main > section.liste-des-plats > div > div:first-of-type {
 main > section.liste-des-plats > div > div:last-of-type {
   padding: 0 10px
 }
-main > section.liste-des-plats p.prix {
-  text-align: right;
+main > section.liste-des-plats div.content-plat span.prix {
+  padding: 5px;
+  color: #b57a36;
+  border: 1px solid #b57a36;
+}
+main > section.liste-des-plats div.content-plat p a {
+  float: right;
+  margin-left: 10px;
+  padding: 8px;
+  color: white;
+  background-color: #6cd288;
+}
+main > section.liste-des-plats div.content-plat p a:last-of-type {
+  background-color: #c5b46b
+}
+
+/********* PLAT ********/
+main > section.plat {
+  padding: 0 2rem;
+}
+main > section.plat figure {
+  margin-right: 0;
+  margin-left: 0;
+}
+main > section.plat a {
+  padding: 8px;
+  color: white;
+  background-color: #6cd288;
 }
 /* SLIDER */
 main > section .bx-wrapper div.bx-viewport {

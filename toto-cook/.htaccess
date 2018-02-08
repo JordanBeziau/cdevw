@@ -1,4 +1,6 @@
 #Options +FollowSymLinks
 RewriteEngine On
+
 RewriteRule ^accueil.php$ index.php [L]
 RewriteRule ^([a-z_]{1,})$ $1.php [L]
+RewriteRule ^([a-z_-]{1,})\/([a-z_-]{1,})$ $1.php?slug=$2 [L]

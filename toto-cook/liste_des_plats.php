@@ -6,7 +6,7 @@
 
 	include("includes/inc_dbh.php");
 
-	$query = "SELECT pla_id, pla_titre, pla_descr, pla_prix FROM plats";
+	$query = "SELECT pla_id, pla_titre, pla_descr, pla_prix, pla_slug FROM plats ORDER BY pla_prix";
 	$result = $dbh->query($query);
 	$response = $result->fetchAll(PDO::FETCH_ASSOC);
 
@@ -26,10 +26,14 @@
 						<div>
 							<img src="photos/photo_<?= $plat["pla_id"]; ?>_s.jpg">
 						</div>
-						<div>
+						<div class="content-plat">
 							<h4><?= $plat["pla_titre"]; ?></h4>
 							<p><?= $plat["pla_descr"]; ?></p>
-							<p class="prix">Prix : <?= $plat["pla_prix"]; ?></p>
+							<p>
+								<span class="prix">Prix : <?= $plat["pla_prix"]; ?> &euro;</span>
+								<a href="/reserve/<?= $plat["pla_slug"] ?>">Réserver</a>
+								<a href="/plat/<?= $plat["pla_slug"]; ?>">Voir la fiche</a>
+							</p>
 						</div>
 					</div>
 						<?php endforeach; ?>
