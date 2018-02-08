@@ -178,7 +178,6 @@ main > section.reserve div.calendar {
 }
 .month-container {
   width: 318px;
-  height: 347px;
   margin: 2px;
   padding: 1px;
   background-color: burlywood;
@@ -193,17 +192,25 @@ main > section.reserve div.calendar {
   font-size: .8rem;
   line-height: 20px;
 }
-.day.empty {
-  background-color: lightgray;
+.month-container .day.word {
+  height: auto;
+  background-color: #cca068;
 }
-.day:hover {
+.day.empty {
+  background-color:  transparent;
+}
+.day.past {
+  color: gray;
+  background-color: hsla(0, 0%, 83%, 0.65);
+}
+.day.ok:hover {
   background-color: lightgreen;
 }
 .day.active {
   background-color: green;
 }
 .day.busy {
-  background-color: #ce4040;
+  background-color: #ce4040
 }
 
 /* ######### FOOTER */

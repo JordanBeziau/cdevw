@@ -48,20 +48,58 @@
 
         <section class="reserve">
           <h2>Choisissez une date disponible</h2>
-          <div class="calendar">
+            <div class="calendar">
+            <?php
+          
+            setlocale(LC_TIME, "fr_FR");
+
+            $days = ["Lun", "Mar", "Mer", "Jeu", "Ven", "Sam", "Dim"];
+            $months = [];
+            for ($i = 1; $i <= 12; $i++) {
+              array_push($months, ucfirst(strftime("%B", mktime(0,0,0,$i,1,date("Y")))));
+            }
+
+            $today = date("j");
+            $month = date("n") - 1;
+            $year = date("Y");
+            $display_year = $year;
+
+            for ($j = 0; $j < 3; $j++) :
+              $display_month = $month + $j;
+              if ($display_month > 11) {
+                $display_month -= 12;
+                $display_year = $year + 1;
+              }
+
+              $first_day = date("N", mktime(0,0,0,$display_month + 1,1,$display_year)) - 2;
+              $days_number = date("t", mktime(0,0,0,$display_month + 1,1,$display_year));
+
+            ?>
             <div class="month-container">
-              <h3>mois</h3>
-              <?php for($i = 1; $i <= 31; $i++) : ?>
-              <div class="day"><?= $i ?></div>
+              <h3><?= $months[$display_month] ." ". $display_year; ?></h3>
+
+              <?php foreach ($days as $day) : ?>
+                <div class="day word"><?= $day ?></div>
+              <?php endforeach; 
+
+              for($i = - $first_day; $i <= $days_number; $i++) :
+                if ($i <= 0) {
+                  echo "<div class='day empty'></div>";
+                } elseif ($i <= $today && (($display_month + 1) == date("n"))) {
+                  echo "<div class='day past'>$i</div>";
+                } else {
+                  echo "<div class='day ok'>$i</div>";
+                }
+               endfor; ?>
+
+            </div>
             <?php endfor; ?>
-            </div>
-            <div class="month-container">
-              <h3>mois</h3>
-            </div>
-            <div class="month-container">
-              <h3>mois</h3>
-            </div>
           </div>
+          <form action="">
+               <input type="hidden" name="pla_id" value="<?= $response["pla_id"]; ?>">
+               <input type="hidden" name="">
+               <input type="text">
+          </form>
         </section>
 				
 				<?php
