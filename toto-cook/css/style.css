@@ -166,6 +166,46 @@ main > section .bx-wrapper div.bx-caption {
   bottom: 10px;
 }
 
+/* RÉSERVATION */
+main > section.reserve {
+  overflow: hidden;
+}
+main > section.reserve div.calendar {
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: space-around;
+
+}
+.month-container {
+  width: 318px;
+  height: 347px;
+  margin: 2px;
+  padding: 1px;
+  background-color: burlywood;
+  text-align: center;
+}
+.month-container .day {
+  width: 44px;
+  height: 44px;
+  margin: 0 0 1px 1px;
+  background-color: #ecdcc0;
+  float: left;
+  font-size: .8rem;
+  line-height: 20px;
+}
+.day.empty {
+  background-color: lightgray;
+}
+.day:hover {
+  background-color: lightgreen;
+}
+.day.active {
+  background-color: green;
+}
+.day.busy {
+  background-color: #ce4040;
+}
+
 /* ######### FOOTER */
 
 main > footer {

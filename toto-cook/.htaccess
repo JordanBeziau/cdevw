@@ -3,4 +3,5 @@ RewriteEngine On
 
 RewriteRule ^accueil.php$ index.php [L]
 RewriteRule ^([a-z_]{1,})$ $1.php [L]
-RewriteRule ^([a-z_-]{1,})\/([a-z_-]{1,})$ $1.php?slug=$2 [L]
+RewriteRule ^plat(/)?$ liste_des_plats.php [L]
+RewriteRule ^([a-z_-]{1,})\/([0-9a-z_-]{1,})$ $1.php?slug=$2 [L]
