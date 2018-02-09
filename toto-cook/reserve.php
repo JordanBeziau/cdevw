@@ -97,8 +97,8 @@
           </div>
           <form action="">
                <input type="hidden" name="pla_id" value="<?= $response["pla_id"]; ?>">
-               <input type="hidden" name="">
-               <input type="text">
+               <input type="hidden" name="cmd_date" value="">
+               <input type="submit" value="Réserver">
           </form>
         </section>
 				

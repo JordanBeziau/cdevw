@@ -25,7 +25,8 @@
 					<input type="text" name="first_name" placeholder="Prénom">
 					<input type="email" name="email" placeholder="Email">
 					<input type="text" name="address" placeholder="Adresse">
-					<input type="text" name="post" placeholder="Code postal">
+					<input type="text" name="post" placeholder="Département">
+					<div id="autoCompletion"></div>
 					<input type="text" name="city" placeholder="Ville">
 					<input type="text" name="phone" placeholder="Téléphone">
 					<input type="submit" value="S'incrire" class="main_form">

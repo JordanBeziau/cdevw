@@ -34,7 +34,12 @@
     <script>
       document.addEventListener("DOMContentLoaded", () => {
 
+        const regionField = document.querySelector("#inscription_form input[name=post]");
         const handleForm = new HandleForm();
+
+        regionField.addEventListener("input", event => {
+          getAsyncCompletionData(event.target.value);
+        })
 
         document.querySelector("#inscription_form").addEventListener("submit", event => {
           event.preventDefault();
