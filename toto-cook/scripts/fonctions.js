@@ -11,8 +11,22 @@ const getAsyncCompletionData = value => {
 
   // Watch server response
   xhr.onreadystatechange = () => {
-    if (xhr.readyState === 4 && xhr.status === 200)
+    if (xhr.readyState === 4 && xhr.status === 200) {
       dataContainer.innerHTML = xhr.responseText;
+      Array.from(document.querySelectorAll("#autoCompletion li")).forEach(
+        element => {
+          element.addEventListener("click", event => {
+            document.querySelector(
+              "#inscription_form input[name=post]"
+            ).dataset.post =
+              event.target.value;
+            document.querySelector("#inscription_form input[name=post]").value =
+              event.target.innerHTML;
+            dataContainer.innerHTML = "";
+          });
+        }
+      );
+    }
   };
 
   xhr.open("POST", "async_region_data.php", true);

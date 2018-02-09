@@ -17,7 +17,8 @@ class HandleForm {
       if (input.name === "phone")
         if (!this.checkPhone(input.value)) return this.setErrorField(input);
       if (input.name === "post")
-        if (!this.checkPost(input.value)) return this.setErrorField(input);
+        if (!this.checkPost(input.getAttribute("data-post")))
+          return this.setErrorField(input);
       return;
     });
     if (!this.error) event.target.submit();
@@ -36,7 +37,7 @@ class HandleForm {
   }
 
   checkPost(string) {
-    const check = new RegExp("^[0-9]{5}$");
+    const check = new RegExp("^[0-9]{1,4}$");
     return check.test(string);
   }
 

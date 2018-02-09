@@ -17,12 +17,28 @@
       $result = $dbh->query($query);
       $user = $result->fetch(PDO::FETCH_ASSOC);
 
+      # Logout from db
+      include("inc_dbu.php");
+
       if ($user) {
         $_SESSION["client"] = "{$user['cli_prenom']} {$user['cli_nom']}";
         $_SESSION["client_id"] = $user["cli_id"];
       }
-
-      # Logout from db
-      include("inc_dbu.php");
     }
+    # LOGS
+    $log_date = date("ymd-His");
+    $log_ip = getIP();
+
+    isset($_SESSION["client_id"]) ?
+      $file = "cli_{$user["cli_id"]}":
+      $file = "auth_try";
+
+    $cursor = fopen("logs/$file.log", "a");
+
+    $email = addslashes(htmlspecialchars($email));
+    isset($_SESSION["client_id"]) ?
+      fputs($cursor, "$log_ip-$log_date\n"):
+      fputs($cursor, "$log_ip-$log_date-$email\n");
+
+    fclose($cursor);
   }

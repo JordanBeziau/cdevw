@@ -110,6 +110,28 @@ main > section {
   background-color: transparent;
 }
 
+/* INSCRIPTION */
+input[name=post] {
+  position: relative;
+}
+div#autoCompletion {
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  max-height: 130px;
+  overflow: auto;
+}
+div#autoCompletion ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+div#autoCompletion li {
+  padding: 4px 10px;
+}
+div#autoCompletion li:hover {
+  background-color: #a8e5e6;
+}
 /* ######## Liste des plats */
 main > section.liste-des-plats {
   padding: 40px 0;
@@ -224,6 +246,7 @@ main > footer {
 form.main_form {
   width: 275px;
   margin: 20px auto;
+  position: relative;
 }
 form label {
   width: 49%;
