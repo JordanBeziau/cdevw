@@ -88,7 +88,7 @@
                 } elseif ($i <= $today && (($display_month + 1) == date("n"))) {
                   echo "<div class='day past'>$i</div>";
                 } else {
-                  echo "<div class='day ok'>$i</div>";
+                  echo "<div class='day ok' data-date='$'>$i</div>";
                 }
                endfor; ?>
 
