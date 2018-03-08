@@ -9,6 +9,11 @@
 namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * Class Activity
+ * @ORM\Entity
+ * @ORM\Table(name="category")
+ */
 class Category
 {
   /**
