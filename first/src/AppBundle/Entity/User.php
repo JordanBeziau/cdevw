@@ -14,6 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  * @ORM\Table(name="fos_user")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  */
 class User extends BaseUser
 {
@@ -121,13 +122,5 @@ class User extends BaseUser
   public function getLastLogin()
   {
     return $this->lastLogin;
-  }
-
-  /**
-   * @param \DateTime|null $lastLogin
-   */
-  public function setLastLogin($lastLogin)
-  {
-    $this->lastLogin = $lastLogin;
   }
 }

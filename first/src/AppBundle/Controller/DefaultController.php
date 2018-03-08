@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,6 +24,8 @@ class DefaultController extends Controller
      * @Route("/blog", name="blogpage")
      */
   public function blogAction() {
+    $em = $this->getDoctrine()->getManager();
+    dump($em->getRepository(User::class)->findAll());
     return $this->render('@App/blog.html.twig', []);
   }
 }
