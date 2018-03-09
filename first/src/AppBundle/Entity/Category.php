@@ -10,7 +10,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Class Activity
+ * Class Category
  * @ORM\Entity
  * @ORM\Table(name="category")
  */
@@ -32,4 +32,36 @@ class Category
    * @ORM\Column(name="type", type="string", length=255, nullable=true)
    */
   protected $type;
+
+  /**
+   * @return mixed
+   */
+  public function getName()
+  {
+    return $this->name;
+  }
+
+  /**
+   * @param mixed $name
+   */
+  public function setName($name)
+  {
+    $this->name = $name;
+  }
+
+  /**
+   * @return mixed
+   */
+  public function getType()
+  {
+    return $this->type;
+  }
+
+  /**
+   * @param mixed $type
+   */
+  public function setType($type)
+  {
+    $this->type = $type;
+  }
 }
