@@ -13,6 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Class Object
  * @ORM\Entity
  * @ORM\Table(name="first_props")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ObjectRepository")
  */
 class Object
 {
@@ -27,4 +28,33 @@ class Object
    * @ORM\Column(name="properties", type="string", length=255, nullable=false, unique=true)
    */
   protected $properties;
+
+  /**
+   * @return mixed
+   */
+  public function getId()
+  {
+    return $this->id;
+  }
+
+  /**
+   * @return mixed
+   */
+  public function getProperties()
+  {
+    return $this->properties;
+  }
+
+  /**
+   * @param mixed $properties
+   */
+  public function setProperties($properties)
+  {
+    $this->properties = $properties;
+  }
+
+  public function __toString()
+  {
+    return $this->getProperties();
+  }
 }

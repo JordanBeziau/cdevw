@@ -5,7 +5,25 @@
       Votre Objet :
     </h2>
     <pre>
+{
+{% for object in objects|sort %}
+"{{ object.properties }}":
+{% if properties[object.properties] is defined %}
+{% if properties[object.properties]|length > 1 %}
+  [
+  {% for property in properties[object.properties] %}
+  "{{ property.properties }}",
+  {% endfor %}
+]
+{% else %}
+  "{{ properties[object.properties][0].properties }}"
+{% endif %}
+{% endif %}
+{% endfor %}
+}
     </pre>
+    {{ form_start(form) }}
+    {{ form_end(form) }}
   </section>
 
 {% endblock %}

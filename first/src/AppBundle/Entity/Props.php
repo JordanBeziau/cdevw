@@ -13,6 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Class Props
  * @ORM\Entity
  * @ORM\Table(name="sec_props")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\PropsRepository")
  */
 class Props
 {
@@ -29,7 +30,47 @@ class Props
   protected $properties;
 
   /**
-   * @ORM\Column(name="parent_propertie", type="string", length=255, nullable=false)
+   * @ORM\ManyToOne(targetEntity="Object")
    */
-  protected $parentPropertie;
+  protected $object;
+
+  /**
+   * @return mixed
+   */
+  public function getId()
+  {
+    return $this->id;
+  }
+
+  /**
+   * @return mixed
+   */
+  public function getProperties()
+  {
+    return $this->properties;
+  }
+
+  /**
+   * @param mixed $properties
+   */
+  public function setProperties($properties)
+  {
+    $this->properties = $properties;
+  }
+
+  /**
+   * @return mixed
+   */
+  public function getObject()
+  {
+    return $this->object;
+  }
+
+  /**
+   * @param mixed $object
+   */
+  public function setObject($object)
+  {
+    $this->object = $object;
+  }
 }

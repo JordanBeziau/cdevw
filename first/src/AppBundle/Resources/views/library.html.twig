@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+{% block body %}
+  <section class="container">
+    <h1 class="title is-1">📜 Library page</h1>
+    {{ form_start(form) }}
+    {{ form_rest(form) }}
+      <input type="submit" class="button is-link" value="Search">
+    {{ form_end(form) }}
+    <table class="table">
+      <tr>
+        <td>Name</td>
+        <td>Shelf</td>
+        <td>Book</td>
+      </tr>
+    {% for data in datas %}
+      <tr {% if data.id == 3 %}class="is-selected" {% endif %}>
+        <td>{{ data.name }}</td>
+        <td>{{ data.shelfNumber }}</td>
+        <td>{{ data.bookNumber }}</td>
+      </tr>
+    {% endfor %}
+    </table>
+  </section>
+{% endblock %}
