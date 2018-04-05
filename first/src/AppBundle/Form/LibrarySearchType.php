@@ -22,7 +22,8 @@ class LibrarySearchType extends AbstractType
         ->add('nameOptions', ChoiceType::class, [
           'multiple' => false,
           'expanded' => true,
-          'choices' => ['same' => 'Same', 'like' => 'Like']
+          'choices' => ['Same' => 'same', 'Like' => 'like'],
+          'preferred_choices' => ['Like' => 'like']
         ])
         ->add('name', TextType::class, [
           'label' => false,
@@ -33,16 +34,25 @@ class LibrarySearchType extends AbstractType
           ],
           'constraints' => [
             new NotBlank(),
-            new Length(['min' => 3]),
           ]
+        ])
+        ->add('bookOptions', ChoiceType::class, [
+          'multiple' => false,
+          'expanded' => true,
+          'choices' => ['And' => 'and', 'Or' => 'or'],
         ])
         ->add('bookNumber', IntegerType::class, [
           'label' => false,
           'required' => false,
           'attr' => [
-            'placeholder' => 'Book num.',
+            'placeholder' => 'BookController num.',
             'class' => 'input'
           ]
+        ])
+        ->add('dateOptions', ChoiceType::class, [
+          'multiple' => false,
+          'expanded' => true,
+          'choices' => ['And' => 'and', 'Or' => 'or']
         ])
         ->add('createdAt', DateTimeType::class);
     }

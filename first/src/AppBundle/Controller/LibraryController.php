@@ -27,7 +27,7 @@ class LibraryController extends Controller
     $form->handleRequest($request);
     $em = $this->getDoctrine()->getManager();
     if ($form->isSubmitted() && $form->isValid()) {
-      dump($datas = $em->getRepository(Library::class)->getSearchLibrary($form->getData()));
+      $datas = $em->getRepository(Library::class)->getSearchLibrary($form->getData());
     } else {
       $datas = $em->getRepository(Library::class)->findAll();
     }
