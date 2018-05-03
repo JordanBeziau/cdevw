@@ -3,6 +3,7 @@
 namespace AppBundle\Form;
 
 use AppBundle\Entity\Library;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -13,18 +14,13 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Range;
 
-class BookType extends AbstractType
+class BookTestType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-      $libs = [];
-      /** @var $libraries Library */
-      foreach ($options['library'] as $libraries) {
-        $libs[$libraries->getId()] = $libraries->getName();
-      }
       $builder
         ->add('name', TextType::class, [
           'attr' => ['class' => 'input']
@@ -42,7 +38,11 @@ class BookType extends AbstractType
         ->add('lib_id', EntityType::class, [
           'class' => Library::class,
           'multiple' => false,
-          'expanded' => false
+          'expanded' => false,
+          'query_builder' => function (EntityRepository $er) {
+            $query = $er->createQueryBuilder('lib')->where('lib.content = \'book\'');
+            return $query;
+          }
         ]);
         /*->add('lib_id', ChoiceType::class, [
           'choices' => $libs,
@@ -57,8 +57,6 @@ class BookType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => 'AppBundle\Entity\Book',
-            'library' => null,
-            'allow_extra_fields' => true
         ));
     }
 

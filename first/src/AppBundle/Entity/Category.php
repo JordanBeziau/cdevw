@@ -10,7 +10,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Class Category
+ * Class CategoryService
  * @ORM\Entity
  * @ORM\Table(name="category")
  */
@@ -29,9 +29,30 @@ class Category
   protected $name;
 
   /**
-   * @ORM\Column(name="type", type="string", length=255, nullable=true)
+   * @ORM\OneToMany(targetEntity="AppBundle\Entity\ActivityCategory", mappedBy="id_category")
    */
-  protected $type;
+  protected $category_activity;
+
+  public function __toString()
+  {
+    return $this->name;
+  }
+
+  /**
+   * @return mixed
+   */
+  public function getId()
+  {
+    return $this->id;
+  }
+
+  /**
+   * @param mixed $id
+   */
+  public function setId($id)
+  {
+    $this->id = $id;
+  }
 
   /**
    * @return mixed
@@ -52,16 +73,16 @@ class Category
   /**
    * @return mixed
    */
-  public function getType()
+  public function getCategoryActivity()
   {
-    return $this->type;
+    return $this->category_activity;
   }
 
   /**
-   * @param mixed $type
+   * @param mixed $category_activity
    */
-  public function setType($type)
+  public function setCategoryActivity($category_activity)
   {
-    $this->type = $type;
+    $this->category_activity = $category_activity;
   }
 }

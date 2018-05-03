@@ -10,38 +10,32 @@ namespace AppBundle\Controller;
 
 
 use AppBundle\AppBundle;
-use AppBundle\Entity\Library;
-use AppBundle\Form\BookTestType;
-use AppBundle\Form\BookType;
+use AppBundle\Entity\Dvd;
+use AppBundle\Form\DvdType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
 
-class BookController extends Controller
+class DvdController extends Controller
 {
   /**
-   * @Route("/book", name="book")
+   * @Route("/dvd", name="dvd")
    * @Method({"GET", "POST"})
    */
-  public function bookAction(Request $request)
+  public function dvdAction(Request $request)
   {
     $em = $this->getDoctrine()->getManager();
-    $form = $this->createForm(BookTestType::class, null, [
+    $form = $this->createForm(DvdType::class, null, [
       'attr' => ['class' => 'form']
     ]);
     $form->handleRequest($request);
-    $postForm = $request->request->get('appbundle_book');
     if ($form->isSubmitted() && $form->isValid()) {
-      if ($postForm['height'] > 30) {
-        $form->get('height')->addError(new FormError('Hauteur trop élevée.'));
-      } else {
-        $em->persist($form->getData());
-        $em->flush();
-      }
+      $em->persist($form->getData());
+      $em->flush();
     }
-    return $this->render('@App/book.html.twig', [
+    return $this->render('@App/dvd.html.twig', [
       'form' => $form->createView()
     ]);
   }

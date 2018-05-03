@@ -12,10 +12,10 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Class Activity
  * @ORM\Entity
- * @ORM\Table(name="book")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\BookRepository")
+ * @ORM\Table(name="dvd")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\DvdRepository")
  */
-class Book
+class Dvd
 {
   /**
    * @ORM\Id
@@ -30,15 +30,32 @@ class Book
   protected $name;
 
   /**
-   * @ORM\Column(name="author", type="string", length=255, nullable=true)
+   * @ORM\Column(name="genre", type="string", length=255, nullable=true)
    */
-  protected $author;
-
+  protected $genre;
   /**
    * ORM\Column(name="lib_id", type="integer", nullable=true)
-   * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Library")
-   */
+  * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Library")
+  */
   protected $lib_id;
+
+  /**
+   * @return mixed
+   */
+  public function getLibId()
+  {
+    return $this->lib_id;
+  }
+
+  /**
+   * @param mixed $lib_id
+   */
+  public function setLibId($lib_id)
+  {
+    $this->lib_id = $lib_id;
+  }
+
+
 
   /**
    * @return mixed
@@ -59,33 +76,17 @@ class Book
   /**
    * @return mixed
    */
-  public function getAuthor()
+  public function getGenre()
   {
-    return $this->author;
+    return $this->genre;
   }
 
   /**
-   * @param mixed $author
+   * @param mixed $genre
    */
-  public function setAuthor($author)
+  public function setGenre($genre)
   {
-    $this->author = $author;
-  }
-
-  /**
-   * @return mixed
-   */
-  public function getLibId()
-  {
-    return $this->lib_id;
-  }
-
-  /**
-   * @param mixed $lib_id
-   */
-  public function setLibId($lib_id)
-  {
-    $this->lib_id = $lib_id;
+    $this->genre = $genre;
   }
 
   /**
@@ -96,8 +97,4 @@ class Book
     return $this->id;
   }
 
-  public function __toString()
-  {
-    return $this->getName();
-  }
 }

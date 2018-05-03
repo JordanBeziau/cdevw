@@ -9,6 +9,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Library;
+use AppBundle\Form\BookListLibraryType;
 use AppBundle\Form\LibrarySearchType;
 use AppBundle\Form\LibraryType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -23,17 +24,34 @@ class LibraryController extends Controller
    * @Method({"GET", "POST"})
    */
   public function libraryAction(Request $request) {
+    $libraryService = $this->get('library.service');
     $form = $this->createForm(LibrarySearchType::class, null, ['attr' => ['class' => 'form']]);
     $form->handleRequest($request);
-    $em = $this->getDoctrine()->getManager();
-    if ($form->isSubmitted() && $form->isValid()) {
-      $datas = $em->getRepository(Library::class)->getSearchLibrary($form->getData());
-    } else {
-      $datas = $em->getRepository(Library::class)->findAll();
-    }
+    if ($form->isSubmitted() && $form->isValid())
+      $datas = $libraryService->LibraryRegister($form->getData());
+    else $datas = $libraryService->LibraryList();
+
     return $this->render('@App/library.html.twig', [
       'datas' => $datas,
       'form' => $form->createView(),
+    ]);
+  }
+
+  /**
+   * @Route("/library/{id}", name="oneLibrary", defaults={})
+   * @Method({"GET", "POST"})
+   */
+  public function libraryListAction(Request $request, Library $id)
+  {
+    $form = $this->createForm(BookListLibraryType::class, null, ['library' => $id]);
+    $form->handleRequest($request);
+    if ($form->isSubmitted() && $form->isValid()) {
+      dump($form->getData());
+    }
+
+    return $this->render('@App/bookListLibrary.html.twig', [
+      'form' => $form->createView(),
+      'title' => $id->getName()
     ]);
   }
 

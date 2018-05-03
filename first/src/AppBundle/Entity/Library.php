@@ -40,6 +40,11 @@ class Library
   protected $book_number;
 
   /**
+   * @ORM\Column(name="content", type="string", length=255, nullable=false)
+   */
+  protected $content;
+
+  /**
    * @ORM\Column(name="created_at", type="datetime", nullable=true)
    */
   protected $created_at;
@@ -49,6 +54,27 @@ class Library
    */
   protected $updated_at;
 
+  public function __toString()
+  {
+    return $this->name;
+  }
+
+  /**
+   * @return mixed
+   */
+  public function getContent()
+  {
+    return $this->content;
+  }
+
+  /**
+   * @param mixed $content
+   */
+  public function setContent($content)
+  {
+    $this->content = $content;
+  }
+
   /**
    * @return mixed
    */
@@ -56,15 +82,6 @@ class Library
   {
     return $this->id;
   }
-
-  /**
-   * @param mixed $id
-   */
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
-
 
   /**
    * @return mixed

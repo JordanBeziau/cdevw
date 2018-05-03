@@ -1,0 +1,10 @@
+{% extends "base.html.twig" %}
+{% block body %}
+  <section class="container">
+    <h1 class="title is-1">🏕 Activity page</h1>
+    {{ form_start(form) }}
+    {{ form_rest(form) }}
+    <input type="submit" class="button is-link" value="OK">
+    {{ form_end(form) }}
+  </section>
+{% endblock %}
