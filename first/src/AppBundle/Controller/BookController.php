@@ -11,6 +11,9 @@ namespace AppBundle\Controller;
 
 use AppBundle\AppBundle;
 use AppBundle\Entity\Library;
+use AppBundle\Event\BigBrother;
+use AppBundle\Event\CountEvent;
+use AppBundle\Event\PostBookEvent;
 use AppBundle\Form\BookTestType;
 use AppBundle\Form\BookType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -37,6 +40,8 @@ class BookController extends Controller
       if ($postForm['height'] > 30) {
         $form->get('height')->addError(new FormError('Hauteur trop élevée.'));
       } else {
+        $event = new PostBookEvent('Nouveau livre', $form->getData());
+        $this->get('event_dispatcher')->dispatch(BigBrother::onMessagePost, $event);
         $em->persist($form->getData());
         $em->flush();
       }

@@ -46,3 +46,35 @@ services:
         public: true
         arguments:
             - '@doctrine.orm.default_entity_manager'
+
+    contact.service:
+        class: AppBundle\Service\ContactService
+        public: true
+        arguments:
+            - '@doctrine.orm.default_entity_manager'
+
+    # src/OC/PlatformBundle/Resources/config/services.yml
+    beta.service:
+        class: AppBundle\Event\BetaHTML
+
+    # src/OC/PlatformBundle/Resources/config/services.yml
+    betalistener.service:
+        class: AppBundle\EventListener\BetaListener
+        arguments: ['@beta.service', "2018-06-01"]
+        tags: [{ name: kernel.event_listener, event: kernel.response, method: processBeta }]
+
+    postbookevent.service:
+        class: AppBundle\Event\PostBookEvent
+
+    postbookeventlistener.service:
+        class: AppBundle\EventListener\PostBookEventListener
+        arguments: ['@mailer']
+        tags: [{ name: kernel.event_listener, event: book.post_message, method: processBookPost }]
+
+    countlistener.service:
+        class: AppBundle\EventListener\CountListener
+        arguments: ['@doctrine.orm.default_entity_manager', '@twig']
+        tags: [{ name: kernel.event_listener, event: kernel.controller, method: processCount }]
+
+    biblilistener.service:
+        class: AppBundle\EventListener\bi

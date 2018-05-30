@@ -27,6 +27,9 @@ class BookListLibraryType extends AbstractType
       'class' => Book::class,
       'query_builder' => function (EntityRepository $er) use ($options) {
         return $er->createQueryBuilder('book')->where('book.lib_id = '. $options['library']->getId());
+      },
+      'choice_attr' => function () use ($options) {
+        return ['checked' => 'checked'];
       }
     ]);
   }

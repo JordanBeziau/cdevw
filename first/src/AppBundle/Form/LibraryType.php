@@ -45,7 +45,8 @@ class LibraryType extends AbstractType
           ])
           ->add('created_at')
           ->add('updated_at');
-    }/**
+    }
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)

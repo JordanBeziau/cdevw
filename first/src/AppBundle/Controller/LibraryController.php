@@ -46,12 +46,24 @@ class LibraryController extends Controller
     $form = $this->createForm(BookListLibraryType::class, null, ['library' => $id]);
     $form->handleRequest($request);
     if ($form->isSubmitted() && $form->isValid()) {
-      dump($form->getData());
+      $this->get('book.service')->bookDelete($id, $request->request->get('appbundle_activity'));
+      return $this->redirectToRoute('libraryOrphan');
     }
 
     return $this->render('@App/bookListLibrary.html.twig', [
       'form' => $form->createView(),
       'title' => $id->getName()
+    ]);
+  }
+
+  /**
+   * @Route("/library/orphan/list", name="libraryOrphan")
+   * @Method({"GET"})
+   */
+  public function LibraryListOrphanAction()
+  {
+    return $this->render('@App/orphanBookList.html.twig', [
+      'bookList' => $this->get('book.service')->getOrphanBook()
     ]);
   }
 

@@ -27,9 +27,21 @@ class BookService
     return $this->getDoctrine()->getRepository(Book::class)->findBy(['lib_id' => $library->getId()]);
   }
 
-  public function bookDelete()
+  public function bookDelete(Library $library, array $newBookList)
   {
-    return 'test';
+    $bookList = $this->getBookList($library);
+    foreach ($bookList as $book) {
+      if (array_search($book->getId(), $newBookList['bookList']) === false) {
+        $book->setLibId(null);
+        $this->doctrine->persist($book);
+        $this->doctrine->flush();
+      }
+    }
+  }
+
+  public function getOrphanBook()
+  {
+    return $this->doctrine->getRepository(Book::class)->findBy(['lib_id' => null]);
   }
 
   /**

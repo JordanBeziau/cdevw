@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Class Object
  * @ORM\Entity
- * @ORM\Table(name="first_props")
+ * @ORM\Table(name="object")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ObjectRepository")
  */
 class Object

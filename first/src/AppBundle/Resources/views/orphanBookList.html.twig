@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+  <section class="section">
+    <h1 class="title is-h1">Orphan books</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Author</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for book in bookList %}
+          <tr>
+            <td>{{ book.name }}</td>
+            <td>{{ book.author }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+{% endblock %}

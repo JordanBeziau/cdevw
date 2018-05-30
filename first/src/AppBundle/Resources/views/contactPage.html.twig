@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+  <section class="section">
+    <h1 class="title is-h1">Contact</h1>
+    {{ form_start(form) }}
+    {{ form_rest(form) }}
+    <input type="submit" class="button is-link" value="Send">
+    {{ form_end(form) }}
+  </section>
+{% endblock %}
