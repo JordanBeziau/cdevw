@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+  <h1 class="title is-1">🗓 New Event</h1>
+  {{ form_start(form) }}
+  {{ form_rest(form) }}
+  <input type="submit" class="button is-link" value="Create Event">
+  {{ form_end(form) }}
+{% endblock %}
